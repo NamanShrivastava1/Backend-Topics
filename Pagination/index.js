@@ -47,7 +47,7 @@ app.get("/users", async (req, res) => {
       .skip((page - 1) * limit)
       .limit(limit)
       .lean();
-      
+
     return res.json({
       message: "User fetched successfully.",
       success: true,
