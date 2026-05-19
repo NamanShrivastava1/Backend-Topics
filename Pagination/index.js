@@ -11,9 +11,14 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("user", userSchema);
 
-await mongoose.connect("mongodb://127.0.0.1:27017/paginationDB").then(() => {
-  console.log("Connected to MongoDB");
-});
+await mongoose
+  .connect("mongodb://127.0.0.1:27017/paginationDB")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.log("DB Error: ", error);
+  });
 
 app.post("/users", async (req, res) => {
   try {
