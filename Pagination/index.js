@@ -56,6 +56,9 @@ app.get("/users", async (req, res) => {
     return res.json({
       message: "User fetched successfully.",
       success: true,
+      page,
+      totalPages,
+      nextPage,
       users,
     });
   } catch (error) {
