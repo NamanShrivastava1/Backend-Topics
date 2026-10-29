@@ -52,6 +52,8 @@ app.get("/users", async (req, res) => {
       .skip((page - 1) * limit)
       .limit(limit)
       .lean();
+    // By default, Mongoose converts query results into Mongoose documents, which provide additional features such as change tracking, document methods, and .save().
+    // When you use .lean(), Mongoose skips that document-hydration step and returns plain JavaScript objects instead.
 
     return res.json({
       message: "User fetched successfully.",
